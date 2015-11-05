@@ -1,4 +1,34 @@
 Rails.application.routes.draw do
+
+  root 'static#index'
+
+  resources :users
+
+  get '/signup', to: "users#new", as: 'new_signup'
+  post '/signup', to: "users#create", as: 'signup'
+
+  get '/login', to: "sessions#new", as: 'new_login'
+  post '/login', to: "sessions#create", as: 'login'
+  delete '/logout', to: "sessions#destroy", as: 'logout'
+
+  get 'auth/:provider/callback', to: 'fbsessions#create'
+  get 'auth/failure', to: redirect('/')
+  get 'signout', to: 'fbsessions#destroy', as: 'signout'
+   
+  # get 'users/index'
+
+  # get 'users/show'
+
+  # get 'users/new'
+
+  # get 'users/create'
+
+  # get 'users/edit'
+
+  # get 'users/update'
+
+  # get 'users/destroy'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
