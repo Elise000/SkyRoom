@@ -1,2 +1,16 @@
-<h1> Welcome <%= @user.username %></h1>
+<h1><%= @user.username %> PROFILE</h1>
 
+<button> My listing </button>
+<button> My bookings </button>
+
+
+<!--
+<script>
+	var url = '<%= user_url(@user) %>'
+  if(window.opener) {
+   
+    window.close()
+
+    window.opener.location= url;
+  }
+</script>

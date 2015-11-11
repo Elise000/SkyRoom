@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
  
   		if @user && @user.authenticate(params[:login][:password])
 				login(@user)
-  			redirect_to @user #user_path(@user)
+  			redirect_to root_path #user_path(@user)
   		else
 	  		flash[:error] = "Email or Password id invalid"
 	  		redirect_to new_login_path

@@ -29,6 +29,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'omniauth-facebook'
 #for facebook login option
 
+gem 'bootstrap-sass'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
