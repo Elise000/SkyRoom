@@ -1,0 +1,11 @@
+<br>
+<br>
+
+<h1>All your listing</h1>
+
+<% @listings.each do |l| %>
+	<ul>
+		<li> Listing Name: <%= l.listing_name %></li>
+		<p> Description: <%= l.description %></p>
+	</ul>
+<% end %>

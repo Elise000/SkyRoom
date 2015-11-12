@@ -1,0 +1,30 @@
+<br>
+<br>
+
+<div class="container">
+	<div class="row">
+		<h1> Please confirm your listing <%= @listing.user.username %></h1>
+		<p> Listing Name: <%= @listing.listing_name %></p><br>
+		<p> Home Type: <%= @listing.home_type %></p><br>
+		<p> Accomodates: <%= @listing.accomodates %></p><br>
+		<p> No of Rooms: <%= @listing.no_of_rooms %></p><br>
+		<p> Smoking: <%= @listing.smoking %></p><br>
+		<p> Price: USD<%= @listing.price %></p><br>
+		<p> Description: <%= @listing.description %></p><br>
+		<p> Street Address: <%= @listing.street_address %></p><br>
+		<p> Country: <%= @listing.country %></p><br>
+		<p> City: <%= @listing.city %></p><br>
+		<p> State: <%= @listing.state %></p><br>
+	</div>
+</div>
+
+<%= link_to "Confirm", root_path %>
+<%= link_to "Edit", edit_listing_path %>
+
+<br>
+<br>
+<br>
+
+
+
+

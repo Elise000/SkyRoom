@@ -31,6 +31,10 @@ gem 'omniauth-facebook'
 
 gem 'bootstrap-sass'
 
+gem 'country_select'
+
+gem 'simple_form'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

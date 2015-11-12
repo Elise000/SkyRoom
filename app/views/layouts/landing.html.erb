@@ -23,7 +23,7 @@
        
 </header>
 
-  <nav class="navbar navbar-inverse navbar-static-top hr">
+  <nav class="navbar transparent navbar-inverse navbar-static-top hr">
     <div class="container-fluid">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar" aria-expended="false">
@@ -31,10 +31,10 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span> 
         </button>
-        <%= link_to root_path do %><span class="glyphicon glyphicon-home"></span>Home<% end %>
+        <a class="navbar-brand" style="color:white" href="#">Skyhome<span class="glyphicon glyphicon-home"></span></a>
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
-        <ul class="nav navbar-nav pull-right landing" style="color:gray">
+        <ul class="nav navbar-nav pull-right" style="color:white;">
           <li><%= link_to "Be A Host", new_listing_path %></li>  
           <% if current_user.nil? %>    
             <li><%= link_to new_signup_path do %>
@@ -52,6 +52,7 @@
       </div>
     </div>
   </nav>
+
 
       <% flash.each do |k, v| %>
         <p><%= "#{k}: #{v}" %></p>

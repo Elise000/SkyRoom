@@ -1,13 +1,55 @@
 
 
-<div id="user_nav">
-  <% if current_user %>
-    <%= render partial: 'loggedin_user' %>
-  <% else %>
-    <%= render partial: 'notloggedin' %>
-  <% end %>
-</div>
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+<!-- Indicators -->
+    <ol class="carousel-indicators">
+     <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+      <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+      <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+    </ol>
 
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <%= image_tag("backpack.jpg") %>
+     <div class="carousel-caption">
+          <div class="hero-header">
+            <div class="main-text">Sky Room</div>
+            <div class="sub-text">Comfort everywhere under the Sky</div>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <%= image_tag("cookieroom.jpg") %>
+        <div class="carousel-caption">
+          <div class="hero-header">
+            <div class="main-text">Sky Room</div>
+            <div class="sub-text">Comfort everywhere under the Sky</div>
+          </div>
+      </div>
+    </div>
+
+      <!-- Controls -->
+    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+      
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+      
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+
+<h1> Homepagewith Listings </h1>
+
+<div class="container">
+  <div class="row">
+    <% Listing.all.each do |l| %>
+      <%= l.listing_name %><br>
+      <%= l.description %>
+    <% end %>
+  </div>
+</div>
 <!--
   <script>
   function popupCenter(url, width, height, name) {

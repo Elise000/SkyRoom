@@ -13,8 +13,12 @@ Rails.application.routes.draw do
 
   get 'auth/:provider/callback', to: 'fbsessions#create'
   get 'auth/failure', to: redirect('/')
-  get 'signout', to: 'fbsessions#destroy', as: 'signout'
-   
+
+
+  # get '/listings/new', to: "listings#new", as: 'new_listing'
+  # post '/listings', to: "listings#create", as: 'listings'
+  
+  resources :listings
   # get 'users/index'
 
   # get 'users/show'
