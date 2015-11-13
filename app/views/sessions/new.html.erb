@@ -1,32 +1,33 @@
 <br>
 <br>
 
-<h1>Log In to SkyRoom</h1>
+<div class="container">
+  <h1>Log In to SkyRoom</h1>
 
-<% if @user && @user.errors.present? %>
-  <ul>
-    <% @user.errors.full_messages.each do |e| %>
-      <li><%= e %></li>
-    <% end %>
-  </ul>
-<% end %>
+  <% if @user && @user.errors.present? %>
+    <ul>
+      <% @user.errors.full_messages.each do |e| %>
+        <li><%= e %></li>
+      <% end %>
+    </ul>
+  <% end %>
 
-<%= form_for :login do |f| %>
+  <%= simple_form_for :login do |f| %>
 
-  <div>
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-  </div>
+    <div>
+      <%= f.input :email %>
+    </div>
 
-  <div>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-  </div>
+    <div>
+      <%= f.input :password %>
+    </div>
 
-  <div>
-    <%= f.submit "Login!" %>
-  </div>
+    <div>
+      <%= f.button :submit, class: "btn btn-primary" %>
+    </div>
 
- <% end %>
+   <% end %>
 
- <%= link_to "Log in with Facebook", "/auth/facebook", id: "sign_in" %>
+  <%= link_to "Log in with Facebook", "/auth/facebook", id: "sign_in" %>
+
+</div>

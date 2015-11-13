@@ -7,14 +7,17 @@ class ListingsController < ApplicationController
 
 	def create
 		@listing = Listing.new(listing_params)
-		@listing.user_id = current_user.id
-		if @listing.save
-      flash[:notice] = "Thank you for your submission. Your listing is successful"
-      redirect_to @listing
-     
-    else
-      render action: "new"
-    end
+		if current_user.nil?
+			redirect_to new_login_path
+		else
+			@listing.user_id = current_user.id
+			if @listing.save
+	      flash[:notice] = "Thank you for your submission. Your listing is successful"
+	      redirect_to @listing
+	    else
+	      render action: "new"
+	    end
+	  end
 	end
 
 	def index
@@ -24,6 +27,7 @@ class ListingsController < ApplicationController
 
 	def show
 		@listing = Listing.find(params[:id])
+		@user = @listing.user
 	end
 
 	def edit

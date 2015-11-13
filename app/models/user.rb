@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
 	has_secure_password
 	has_many :listings
 
+	mount_uploader :avatar, AvatarUploader
+
   validates :username, presence: true
   validates :email, presence: true, uniqueness: true,
     format: {with: /\A[^@\s]+@([^@\s]+\.)+[^@\W]+\z/ }

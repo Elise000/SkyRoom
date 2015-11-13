@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: dej2jouee
+  api_key: '977758666496117'
+  api_secret: 7bXXrZ4iX3VSobTx34zHh6ppOFI
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: dej2jouee
+  api_key: '977758666496117'
+  api_secret: 7bXXrZ4iX3VSobTx34zHh6ppOFI
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: dej2jouee
+  api_key: '977758666496117'
+  api_secret: 7bXXrZ4iX3VSobTx34zHh6ppOFI
+  enhance_image_tag: true
+  static_image_support: false

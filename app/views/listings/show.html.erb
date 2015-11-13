@@ -3,7 +3,8 @@
 
 <div class="container">
 	<div class="row">
-		<h1> Please confirm your listing <%= @listing.user.username %></h1>
+
+		<p> Listed by: <%= @listing.user.username%></p>
 		<p> Listing Name: <%= @listing.listing_name %></p><br>
 		<p> Home Type: <%= @listing.home_type %></p><br>
 		<p> Accomodates: <%= @listing.accomodates %></p><br>
@@ -18,8 +19,11 @@
 	</div>
 </div>
 
-<%= link_to "Confirm", root_path %>
-<%= link_to "Edit", edit_listing_path %>
+<% if current_user == @user %>
+	<%= link_to "Confirm", root_path %>
+	<%= link_to "Edit", edit_listing_path %>
+<% end %>
+
 
 <br>
 <br>

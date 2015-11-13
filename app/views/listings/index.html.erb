@@ -1,11 +1,13 @@
 <br>
 <br>
 
-<h1>All your listing</h1>
+<div class="container">
+	<h1>All your listing</h1>
 
-<% @listings.each do |l| %>
-	<ul>
-		<li> Listing Name: <%= l.listing_name %></li>
-		<p> Description: <%= l.description %></p>
-	</ul>
-<% end %>
+	<% @listings.each do |l| %>
+		<ul>
+			<%= link_to l.listing_name, listing_path(@l, :id => l.id) %>
+			<p><%= l.description %></p>
+		</ul>
+	<% end %>
+</div>

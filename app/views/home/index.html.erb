@@ -40,13 +40,14 @@
     </a>
   </div>
 
-<h1> Homepagewith Listings </h1>
+<h1> Recent Listings </h1>
 
 <div class="container">
   <div class="row">
     <% Listing.all.each do |l| %>
-      <%= l.listing_name %><br>
-      <%= l.description %>
+      <%= link_to l.listing_name, listing_path(@l, :id => l.id) %><br>
+      <%= l.description %><br>
+      <br>
     <% end %>
   </div>
 </div>

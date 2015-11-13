@@ -35,6 +35,12 @@ gem 'country_select'
 
 gem 'simple_form'
 
+gem 'carrierwave'
+#for image and file uploading
+
+gem 'cloudinary'
+#to host images in cloud
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
