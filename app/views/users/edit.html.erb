@@ -1,2 +1,44 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<br>
+<br>
+
+<div class="container">
+
+  <h1>Edit Your Profile Here</h1>
+
+  <% if @user && @user.errors.present? %>
+    <ul>
+      <% @user.errors.full_messages.each do |e| %>
+        <li><%= e %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <%= simple_form_for @user, url: user_path, method: :patch do |f| %>
+    <div>
+      <%= f.input :username %>
+    </div>
+
+    <div>
+      <%= f.input :email %>
+    </div>
+
+    <div>
+      <%= f.input :password %>
+    </div>
+
+    <div>
+      <%= f.input :password_confirmation %>
+    </div>
+
+    <div>
+    <legend>Avatar</legend>
+    <%= f.file_field :avatar %>
+    </div>
+
+    <div>
+      <%= f.button :submit, class: "btn btn-primary" %>
+    </div>
+
+  <% end %>
+
+</div>

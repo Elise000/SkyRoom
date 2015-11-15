@@ -11,10 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151113182604) do
+ActiveRecord::Schema.define(version: 20151115154033) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.date     "checkin"
+    t.date     "checkout"
+    t.integer  "user_id"
+    t.integer  "listing_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "listing_photos", force: :cascade do |t|
+    t.string   "photo"
+    t.integer  "listing_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "listings", force: :cascade do |t|
     t.string   "listing_name"
@@ -44,6 +60,7 @@ ActiveRecord::Schema.define(version: 20151113182604) do
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"
     t.string   "avatar"
+    t.string   "fbpic"
   end
 
 end

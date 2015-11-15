@@ -14,11 +14,13 @@ Rails.application.routes.draw do
   get 'auth/:provider/callback', to: 'fbsessions#create'
   get 'auth/failure', to: redirect('/')
 
-
   # get '/listings/new', to: "listings#new", as: 'new_listing'
   # post '/listings', to: "listings#create", as: 'listings'
-  
+
   resources :listings
+
+  resources :bookings, only: [:new, :create, :show, :index]
+
   # get 'users/index'
 
   # get 'users/show'

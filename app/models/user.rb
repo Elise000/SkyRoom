@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 	has_secure_password
-	has_many :listings
+	has_many :listings, dependent: :destroy
+	has_many :bookings
 
 	mount_uploader :avatar, AvatarUploader
 
@@ -13,6 +14,7 @@ class User < ActiveRecord::Base
 	    user.provider = auth.provider 
 	    user.uid      = auth.uid
 	    user.username = auth.info.name
+	    user.fbpic		= auth.info.image
 	    user.email		= auth.info.email
 	    user.password = SecureRandom.hex
 	    user.save!

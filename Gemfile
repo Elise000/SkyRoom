@@ -35,7 +35,7 @@ gem 'country_select'
 
 gem 'simple_form'
 
-gem 'carrierwave'
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 #for image and file uploading
 
 gem 'cloudinary'

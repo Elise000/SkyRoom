@@ -21,13 +21,18 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    render layouts: "application"
   end
 
   def edit
+    @user = current_user
   end
 
   def update
+    if current_user.update(user_params)
+      redirect to @user
+    else
+    render :edit
+    end
   end
 
   def destroy
@@ -37,6 +42,6 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user)
-        .permit(:username, :email, :password, :password_confirmation, :avatar)
+        .permit(:username, :email, :password, :password_confirmation, :avatar, :fbpic)
   end
 end

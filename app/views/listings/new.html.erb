@@ -4,7 +4,7 @@
 <div class="container">
 	<h1 style="margin-left:20px;"> New Listing Form Here</h1>
 
-	<%= simple_form_for @listing do |f| %>
+	<%= simple_form_for(@listing, html: { multipart: true }) do |f| %>
 		<%= f.input :listing_name %>
 		<%= f.input :home_type, :collection => ["Bangalow", "Aparment", "Terrace"] %>
 		<%= f.input :accomodates, :collection => 1..15 %>
@@ -16,6 +16,7 @@
 		<%= f.input :country, as: :country %>
 		<%= f.input :city %>
 		<%= f.input :state %>
+		<%= f.input_field :photo, as: :file, multiple: true %>
 		<%= f.button :submit, class: "btn btn-primary" %>
 	<% end %>
 </div>

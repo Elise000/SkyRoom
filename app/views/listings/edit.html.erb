@@ -1,1 +1,25 @@
-<h1>Edit your listing</h1>
+<br>
+<br>
+
+<div class="container">
+	<h1 style="margin-left:20px;"> Edit Your Listing Here</h1>
+
+	<%= simple_form_for @listing, url: listing_path, method: :patch do |f| %>
+		<%= f.input :listing_name %>
+		<%= f.input :home_type, :collection => ["Bangalow", "Aparment", "Terrace"] %>
+		<%= f.input :accomodates, :collection => 1..15 %>
+		<%= f.input :no_of_rooms, :collection => 1..10 %>
+		<%= f.input :smoking, :collection => ["Yes", "No"] %>
+		<%= f.input :price, :hint => "Price in USD" %>
+		<%= f.input :description %>
+		<%= f.input :street_address %>
+		<%= f.input :country, as: :country %>
+		<%= f.input :city %>
+		<%= f.input :state %>
+		<%= f.button :submit, class: "btn btn-primary" %>
+	<% end %>
+</div>
+
+<br>
+<br>
+<br>

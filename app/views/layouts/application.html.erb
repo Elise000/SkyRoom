@@ -23,7 +23,7 @@
        
 </header>
 
-  <nav class="navbar navbar-inverse navbar-static-top hr">
+  <nav class="navbar navbar-default navbar-static-top hr">
     <div class="container-fluid">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar" aria-expended="false">
@@ -31,7 +31,9 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span> 
         </button>
-        <%= link_to root_path do %><span class="glyphicon glyphicon-home"></span>Home<% end %>
+          <div class="navbar-brand">
+              <%= link_to root_path, :style=>'color: gray;' do %><span class="glyphicon glyphicon-home"></span>Home<% end %>
+          </div>
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav pull-right landing" style="color:gray">

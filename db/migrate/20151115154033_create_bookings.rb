@@ -1,0 +1,12 @@
+class CreateBookings < ActiveRecord::Migration
+  def change
+    create_table :bookings do |t|
+      t.date :checkin
+      t.date :checkout
+      t.integer :user_id
+      t.integer :listing_id
+
+      t.timestamps null: false
+    end
+  end
+end

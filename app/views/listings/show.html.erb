@@ -1,28 +1,34 @@
 <br>
 <br>
+<br>
+<br>
 
 <div class="container">
-	<div class="row">
+	
 
-		<p> Listed by: <%= @listing.user.username%></p>
-		<p> Listing Name: <%= @listing.listing_name %></p><br>
-		<p> Home Type: <%= @listing.home_type %></p><br>
-		<p> Accomodates: <%= @listing.accomodates %></p><br>
-		<p> No of Rooms: <%= @listing.no_of_rooms %></p><br>
-		<p> Smoking: <%= @listing.smoking %></p><br>
-		<p> Price: USD<%= @listing.price %></p><br>
-		<p> Description: <%= @listing.description %></p><br>
-		<p> Street Address: <%= @listing.street_address %></p><br>
-		<p> Country: <%= @listing.country %></p><br>
-		<p> City: <%= @listing.city %></p><br>
-		<p> State: <%= @listing.state %></p><br>
-	</div>
+		Listed By: <%= @listing.user.username %><br>
+		
+		<% @listingphotos.each do |img| %>
+		<%= image_tag img.photo_url(:display) %><% end %><br>
+		<div>Listing Name: <%= @listing.listing_name %><%= link_to "Book Now", {:controller => 'bookings', :action =>'new', :listing_id => @listing.id}, class: "btn btn-primary" %></div><br>
+		Home Type: <%= @listing.home_type %><br>
+		Accomodates: <%= @listing.accomodates %><br>
+		No of Rooms: <%= @listing.no_of_rooms %><br>
+		Smoking: <%= @listing.smoking %><br>
+		Price: USD<%= @listing.price %><br>
+		Description: <%= @listing.description %><br>
+		Street Address: <%= @listing.street_address %><br>
+		Country: <%= @listing.country %><br>
+		City: <%= @listing.city %><br>
+		State: <%= @listing.state %><br>
+
+	<% if current_user == @user %>
+		<div class="btn-toolbar">
+		<%= button_to "Edit", edit_listing_path, :action => 'update' %>
+		<%= button_to "Delete", {:controller => "listings", :action => 'destroy', :id => @listing.id}, :confirm => "Are you sure you want to delete #{@listing.listing_name}?", :method => :delete %>
+		</div>
+	<% end %>
 </div>
-
-<% if current_user == @user %>
-	<%= link_to "Confirm", root_path %>
-	<%= link_to "Edit", edit_listing_path %>
-<% end %>
 
 
 <br>
