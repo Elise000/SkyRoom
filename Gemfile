@@ -39,6 +39,9 @@ gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 #for image and file uploading
 
 gem 'cloudinary'
+
+#https://github.com/zpaulovics/datetimepicker-rails
+
 #to host images in cloud
 
 # Use Unicorn as the app server
