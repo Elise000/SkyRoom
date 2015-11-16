@@ -39,6 +39,7 @@ class ListingsController < ApplicationController
 		@listing = Listing.find(params[:id])
 		@user = @listing.user
 		@listingphotos = @listing.listing_photos
+		@booking = Booking.new
 	end
 
 	def edit

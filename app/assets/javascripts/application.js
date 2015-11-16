@@ -14,8 +14,20 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
-//= require_tree .
+//= require bootstrap-datepicker
+//= require_tree
+
+
 
 $('.carousel').carousel({
   interval: 3000
 })
+
+$(document).ready(function(){
+  $('#booking_checkin').datepicker({
+  	format: "dd/mm/yyyy",
+  	startDate: "today"});
+  $('#booking_checkout').datepicker({
+	format: "dd/mm/yyyy",
+	startDate: "today"});
+});

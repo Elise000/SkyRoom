@@ -1,4 +1,4 @@
-<br>
+c<br>
 <br>
 <br>
 <br>
@@ -10,7 +10,7 @@
 		
 		<% @listingphotos.each do |img| %>
 		<%= image_tag img.photo_url(:display) %><% end %><br>
-		<div>Listing Name: <%= @listing.listing_name %><%= link_to "Book Now", {:controller => 'bookings', :action =>'new', :listing_id => @listing.id}, class: "btn btn-primary" %></div><br>
+		cListing Name: <%= @listing.listing_name %><br>
 		Home Type: <%= @listing.home_type %><br>
 		Accomodates: <%= @listing.accomodates %><br>
 		No of Rooms: <%= @listing.no_of_rooms %><br>
@@ -29,6 +29,15 @@
 		</div>
 	<% end %>
 </div>
+
+
+<%= form_for @booking, url: bookings_path, method: :create do |f| %>
+<%= f.text_field :checkin, :data => {:provide => "datepicker"} %>
+<%= f.text_field :checkout, :data => {:provide => "datepicker"} %>
+<%= f.hidden_field :user_id, :value => @user.id%>
+<%= f.hidden_field :listing_id, :value => @listing.id %>
+<%= f.submit "Book Now", class: "btn btn-primary" %>
+<% end %>
 
 
 <br>
