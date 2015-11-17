@@ -56,7 +56,7 @@
             <li><%= link_to logout_path, method: :delete do %><span class="glyphicon glyphicon-log-out"></span>Log Out<% end %></li>
               <li>
                 <% if current_user.fbpic %>
-                  <%= image_tag current_user.fbpic %>
+                  <%= image_tag current_user.fbpic, class: "thumbnail_image" %>
                 <% else %>
                   <%= image_tag current_user.avatar_url(:thumbnail), class: "thumbnail_image" %>
                 <% end %>
