@@ -12,5 +12,6 @@ module ApplicationHelper
     !current_user.nil?
   end
   
+  
 end
 

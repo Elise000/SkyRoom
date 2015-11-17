@@ -10,12 +10,13 @@
 		<%= f.input :accomodates, :collection => 1..15 %>
 		<%= f.input :no_of_rooms, :collection => 1..10 %>
 		<%= f.input :smoking, :collection => ["Yes", "No"] %>
-		<%= f.input :price, :hint => "Price in USD" %>
+		<%= f.input :price_per_night, :hint => "Price in USD" %>
 		<%= f.input :description %>
 		<%= f.input :street_address %>
 		<%= f.input :country, as: :country %>
 		<%= f.input :city %>
 		<%= f.input :state %>
+		<%= f.input_field :photo, as: :file, multiple: true %>
 		<%= f.button :submit, class: "btn btn-primary" %>
 	<% end %>
 </div>

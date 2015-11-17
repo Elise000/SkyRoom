@@ -1,5 +1,7 @@
 class ListingsController < ApplicationController
 	include ApplicationHelper
+	before_action :authenticate_user!, except: [:index, :show, :new]
+	before_action :set_listing, only: [:show, :edit, :update, :destroy]
 
 	def new
 		@listing = Listing.new
@@ -20,7 +22,7 @@ class ListingsController < ApplicationController
 					listingphoto.listing_id = @listing.id
 					listingphoto.save
 				end
-	      flash[:notice] = "Thank you for your submission. Your listing is successful"
+	      flash[:notice] = "Your listing is successful"
 	      redirect_to @listing
 	    else
 	    	flash[:notice] = "Bummer, there was a problem in creating your listing. Please try again"
@@ -36,19 +38,17 @@ class ListingsController < ApplicationController
 	end
 
 	def show
-		@listing = Listing.find(params[:id])
 		@user = @listing.user
 		@listingphotos = @listing.listing_photos
 		@booking = Booking.new
 	end
 
 	def edit
-		@listing = Listing.find(params[:id])
 
 	end
 
 	def update
-		@listing = Listing.find(params[:id])
+
 			if @listing.update(listing_params)
 	      redirect_to @listing
 	    else
@@ -57,7 +57,7 @@ class ListingsController < ApplicationController
 	end
 
 	def destroy
-		@listing = Listing.find(params[:id])
+
 		@listing.destroy
 		flash[:notice] = "Your listing #{@listing.listing_name} has been deleted."
 		redirect_to listings_path
@@ -67,7 +67,11 @@ class ListingsController < ApplicationController
 
   def listing_params
     params.require(:listing)
-        .permit(:listing_name, :home_type, :accomodates, :no_of_rooms, :smoking, :price, :description, :street_address, :country, :city, :state, :photo)
+        .permit(:listing_name, :home_type, :accomodates, :no_of_rooms, :smoking, :price_per_night, :description, :street_address, :country, :city, :state, :photo)
+  end
+
+  def set_listing
+    @listing = Listing.find(params[:id])
   end
 
 end

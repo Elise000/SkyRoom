@@ -33,8 +33,14 @@
         </button>
           <div class="navbar-brand">
               <%= link_to root_path, :style=>'color: gray;' do %><span class="glyphicon glyphicon-home"></span>Home<% end %>
+              <% if flash %>
+                  <% flash.each do |k, v| %>
+                    <p class= "alert alert-success"><%= "#{v}" %></p>
+                  <% end %>
+              <% end %>
           </div>
       </div>
+
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav pull-right landing" style="color:gray">
           <li><%= link_to "Be A Host", new_listing_path %></li>  
@@ -48,7 +54,13 @@
           <% end %>
           <% if current_user %>        
             <li><%= link_to logout_path, method: :delete do %><span class="glyphicon glyphicon-log-out"></span>Log Out<% end %></li>
-            <li><% unless current_user.avatar_url.nil? %><%= image_tag current_user.avatar_url(:thumbnail) %><br/><% end %></li>
+              <li>
+                <% if current_user.fbpic %>
+                  <%= image_tag current_user.fbpic %>
+                <% else %>
+                  <%= image_tag current_user.avatar_url(:thumbnail), class: "thumbnail_image" %>
+                <% end %>
+              </li>
             <li><%= link_to current_user.username, user_path(current_user.id) %></li>
           <% end %>
         </ul>
@@ -56,9 +68,6 @@
     </div>
   </nav>
 
-      <% flash.each do |k, v| %>
-        <p><%= "#{k}: #{v}" %></p>
-      <% end %>
 
   <%= yield %>
 
