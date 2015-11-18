@@ -1,5 +1,4 @@
-<br>
-<br>
+<br/><br/><br/><br/>
 
 <div class="container">
 	<h1><%= @user.username %> PROFILE</h1>
@@ -9,18 +8,18 @@
 		<%= image_tag @user.avatar_url(:display) %>
 	<% end %>
 
-	<%= link_to "My listing", listings_path %>
-	<button> My bookings </button>
-<div class="container">
+	<%= link_to "My listing", listings_path, class: "btn btn-primary" %>
 
-<%= link_to "Edit My Profile", edit_user_path %>
+	<%= link_to "Edit My Profile", edit_user_path %>
+
+<div class="container">
 
 <div>
 	<% bookings = current_user.bookings %>
 	<% bookings.each do |b| %>
-		<%= b.listing.listing_name %>
+		<%= b.listing.listing_name %> : 
 		Check In Date: <%= b.checkin %>
-		Check Out Date: <%= b.checkout %>
+		Check Out Date: <%= b.checkout %><br/>
 	<% end %>
 </div>
 <!--

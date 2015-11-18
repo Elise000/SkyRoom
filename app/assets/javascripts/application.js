@@ -23,7 +23,7 @@ $('.carousel').carousel({
   interval: 3000
 })
 
-$(document).on('page:load', function(){
+$(document).on('page:change', function(){
   $('#booking_checkin').datepicker({
   	format: "dd/mm/yyyy",
   	startDate: "today"});

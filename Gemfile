@@ -35,6 +35,7 @@ gem 'country_select'
 
 gem 'simple_form'
 
+
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 #for image and file uploading
 
@@ -45,6 +46,8 @@ gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails',
                               :git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'
 
 gem 'validates_overlap'
+
+gem 'delayed_job_active_record'
 
 #https://github.com/zpaulovics/datetimepicker-rails
 

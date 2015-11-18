@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
 	include ApplicationHelper
+	# require BookingMailer
 	before_action :authenticate_user!, except: [:index, :show]
 
 	def new
@@ -12,6 +13,7 @@ class BookingsController < ApplicationController
 		@booking = Booking.new(booking_params)
 		@booking.user_id = current_user.id
 		if @booking.save
+			SendEmailJob.set(wait: 20.seconds).perform_later(@booking)
 			flash[:success] = "Booking Done"
 			redirect_to current_user
 		else
