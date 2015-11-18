@@ -39,7 +39,16 @@
                   <% end %>
               <% end %>
           </div>
-      </div>
+     </div>
+
+    <div class="navbar-form navbar-left">
+      <%= form_tag listings_path, :method => 'get' do %>
+        <span>
+          <%= text_field_tag :search, params[:search] %>
+          <%= submit_tag "Search", :name => nil %>
+        </span>
+      <% end %>
+    </div>
 
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav pull-right landing" style="color:gray">
@@ -67,7 +76,6 @@
       </div>
     </div>
   </nav>
-
 
   <%= yield %>
 
