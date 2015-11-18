@@ -18,9 +18,9 @@
 <div>
 	<% bookings = current_user.bookings %>
 	<% bookings.each do |b| %>
-		<%= b.listing.listing_name %>
+		<%= b.listing.listing_name %> : 
 		Check In Date: <%= b.checkin %>
-		Check Out Date: <%= b.checkout %>
+		Check Out Date: <%= b.checkout %><br/>
 	<% end %>
 </div>
 <!--
