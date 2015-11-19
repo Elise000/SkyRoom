@@ -1,4 +1,13 @@
 ============================
-Hi I'm a Test Booking Email
-Sample mail sent using smtp. 
+
+Hi, <%= @customer.username %>,
+
+GREAT STUFF!! 
+
+Your Skyroom Property has been confirmed: <br/>
+Property: <%= @listing.listing_name %><br/>
+Checkin Date: <%= @booking.checkin %><br/>
+Checkout Date: <%= @booking.checkout %><br/>
+
+Thanks and have a great day!!
 ============================

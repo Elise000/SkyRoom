@@ -48,7 +48,6 @@ gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails',
 gem 'validates_overlap'
 
 gem 'delayed_job_active_record'
-
 #https://github.com/zpaulovics/datetimepicker-rails
 
 #to host images in cloud

@@ -53,7 +53,7 @@ Rails.application.configure do
     enable_starttls_auto:     true
   }
 
-    config.active_job.queue_adapter = :delayed_job
+  config.active_job.queue_adapter = :delayed_job
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true

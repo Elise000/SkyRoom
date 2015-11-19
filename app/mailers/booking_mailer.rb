@@ -1,5 +1,5 @@
 class BookingMailer < ApplicationMailer
-	default from: "elise.supercotsume@gmail.com"
+	default from: "elise.supercostume@gmail.com"
 
 #   def booking_email()
 #     @user = user
@@ -8,9 +8,9 @@ class BookingMailer < ApplicationMailer
 # end
 
   def booking_email(booking)
-
   	@booking = booking
     @customer = @booking.user
+    @listing = @booking.listing
     # @host = @booking.listing.user
     mail(to: @customer.email, subject: 'Customer Test Booking Email')
   end
