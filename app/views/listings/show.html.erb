@@ -3,32 +3,56 @@
 <br>
 <br>
 
-<div class="container">
-	
 
+<div class="row">
+<div class="col-md-1"></div>
+	<div class="col-md-11">
 		Listed By: <%= @listing.user.username %><br>
-		
 		<% @listingphotos.each do |img| %>
 		<%= image_tag img.photo_url(:display) %><% end %><br>
-		<div>Listing Name: <%= @listing.listing_name %><%= link_to "Book Now", {:controller => 'bookings', :action =>'new', :listing_id => @listing.id}, class: "btn btn-primary" %></div><br>
-		Home Type: <%= @listing.home_type %><br>
-		Accomodates: <%= @listing.accomodates %><br>
-		No of Rooms: <%= @listing.no_of_rooms %><br>
-		Smoking: <%= @listing.smoking %><br>
-		Price: USD<%= @listing.price %><br>
-		Description: <%= @listing.description %><br>
-		Street Address: <%= @listing.street_address %><br>
-		Country: <%= @listing.country %><br>
-		City: <%= @listing.city %><br>
-		State: <%= @listing.state %><br>
+	</div>
+</div>	
+	
 
-	<% if current_user == @user %>
-		<div class="btn-toolbar">
-		<%= button_to "Edit", edit_listing_path, :action => 'update' %>
-		<%= button_to "Delete", {:controller => "listings", :action => 'destroy', :id => @listing.id}, :confirm => "Are you sure you want to delete #{@listing.listing_name}?", :method => :delete %>
-		</div>
-	<% end %>
+
+<div class="row">
+  <div class="col-md-1"></div>
+  	<div class="col-md-5">
+	  	Listing Name: <%= @listing.listing_name %><br>
+			Home Type: <%= @listing.home_type %><br>
+			Accomodates: <%= @listing.accomodates %><br>
+			No of Rooms: <%= @listing.no_of_rooms %><br>
+			Smoking: <%= @listing.smoking %><br>
+			Price: USD<%= @listing.price_per_night %><br>
+			Description: <%= @listing.description %><br>
+			Street Address: <%= @listing.street_address %>, 
+			<%= @listing.city %>, <%= @listing.state %><br>
+			Country: <%= @listing.country %><br>
+
+			<% if current_user == @user %>
+				<div class="btn-toolbar">
+				<%= link_to "Edit", edit_listing_path, :action => 'update', class: "btn btn-primary" %>
+				<%= button_to "Delete", {:controller => "listings", :action => 'destroy', :id => @listing.id}, :confirm => "Are you sure you want to delete #{@listing.listing_name}?", :method => :delete, class: "btn btn-primary" %>
+				</div>
+			<% end %>
+ 		</div>
+
+ 	  <div class="col-md-5">
+ 	  	<br/><br/>
+ 	  	<% if current_user != @user %>
+		  	<%= form_for @booking, url: bookings_path, method: :create do |f| %>
+		  	<%= f.label :checkin %>
+				<%= f.text_field :checkin, :data => {:provide => "datepicker"} %>
+				<%= f.label :checkout %>
+				<%= f.text_field :checkout, :data => {:provide => "datepicker"} %>
+				<%= f.hidden_field :listing_id, :value => @listing.id %>
+				<%= f.submit "Book Now", class: "btn btn-primary"%>
+				<% end %>
+			<% end %>
+  	</div>
+  <div class="col-md-1"></div>
 </div>
+
 
 
 <br>

@@ -13,8 +13,10 @@
  *= require_tree .
  *= require_self
  */
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "bootstrap-datepicker3";
 
 html {
 position: relative;
@@ -46,6 +48,7 @@ min-height: 100%;
 	 position: absolute;
 	 top: 0;
    border-color: transparent;
+   background-color: transparent;
 }
 
 .landing {
@@ -54,7 +57,6 @@ min-height: 100%;
 
 a:hover {
 	border:1px solid white; 
-	padding: 0;
 	border-radius: 5px;
 }
 
@@ -97,4 +99,26 @@ a:hover {
       display: inline;
     }
   }
+}
+
+.alert.alert-success {
+  margin-top: 20px;
+  border-color: #D6E9C6;
+  width: 350px;
+  color: blue;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 10pt
+}
+
+.login {
+  margin: 100px;
+}
+
+.thumbnail_image {
+  border-radius: 25px;
+}
+
+.navbar-form.navbar-left {
+  z-index: 1;
+  margin-top: 10px;
 }

@@ -15,6 +15,14 @@
 
 <%= link_to "Edit My Profile", edit_user_path %>
 
+<div>
+	<% bookings = current_user.bookings %>
+	<% bookings.each do |b| %>
+		<%= b.listing.listing_name %> : 
+		Check In Date: <%= b.checkin %>
+		Check Out Date: <%= b.checkout %><br/>
+	<% end %>
+</div>
 <!--
 <script>
 	var url = '<%= user_url(@user) %>'

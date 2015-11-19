@@ -40,6 +40,14 @@ gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 
 gem 'cloudinary'
 
+
+gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails',
+                              :git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'
+
+gem 'validates_overlap'
+
+gem 'searchkick'
+
 #https://github.com/zpaulovics/datetimepicker-rails
 
 #to host images in cloud
