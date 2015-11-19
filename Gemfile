@@ -35,6 +35,7 @@ gem 'country_select'
 
 gem 'simple_form'
 
+
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 #for image and file uploading
 
@@ -48,6 +49,7 @@ gem 'validates_overlap'
 
 gem 'searchkick'
 
+gem 'delayed_job_active_record'
 #https://github.com/zpaulovics/datetimepicker-rails
 
 #to host images in cloud

@@ -84,6 +84,11 @@ GEM
       sort_alphabetical (~> 1.0)
     currencies (0.4.2)
     debug_inspector (0.0.2)
+    delayed_job (4.1.1)
+      activesupport (>= 3.0, < 5.0)
+    delayed_job_active_record (4.1.0)
+      activerecord (>= 3.0, < 5)
+      delayed_job (>= 3.0, < 5)
     domain_name (0.5.25)
       unf (>= 0.0.5, < 1.0.0)
     elasticsearch (1.0.14)
@@ -235,6 +240,7 @@ DEPENDENCIES
   cloudinary
   coffee-rails (~> 4.1.0)
   country_select
+  delayed_job_active_record
   jbuilder (~> 2.0)
   jquery-rails
   omniauth-facebook

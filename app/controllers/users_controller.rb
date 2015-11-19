@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      UserSendEmailJob.set(wait: 10.seconds).perform_later(@user.id)
       flash[:notice] = "You have succesfully signed up."
       login(@user)
       redirect_to root_path
