@@ -39,7 +39,16 @@
                   <% end %>
               <% end %>
           </div>
-      </div>
+     </div>
+
+    <div class="navbar-form navbar-left">
+      <%= form_tag listings_path, :method => 'get' do %>
+        <span>
+          <%= text_field_tag :search, params[:search] %>
+          <%= submit_tag "Search", :name => nil %>
+        </span>
+      <% end %>
+    </div>
 
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav pull-right landing" style="color:gray">
@@ -56,7 +65,7 @@
             <li><%= link_to logout_path, method: :delete do %><span class="glyphicon glyphicon-log-out"></span>Log Out<% end %></li>
               <li>
                 <% if current_user.fbpic %>
-                  <%= image_tag current_user.fbpic %>
+                  <%= image_tag current_user.fbpic, class: "thumbnail_image" %>
                 <% else %>
                   <%= image_tag current_user.avatar_url(:thumbnail), class: "thumbnail_image" %>
                 <% end %>
@@ -67,7 +76,6 @@
       </div>
     </div>
   </nav>
-
 
   <%= yield %>
 

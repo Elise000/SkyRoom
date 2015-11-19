@@ -33,7 +33,7 @@ class ListingsController < ApplicationController
 	end
 
 	def index
-		@listings = current_user.listings
+		@listings = Listing.search(params[:location]
 
 	end
 
