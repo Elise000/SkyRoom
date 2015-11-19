@@ -1,8 +1,10 @@
 class SendEmailJob < ActiveJob::Base
   queue_as :default
 
-  def perform(booking)
-  	BookingMailer.booking_email(booking).deliver_now
+  def perform(booking_id)
+  	BookingMailer.booking_email(booking_id).deliver_now
     # Do something later
   end
 end
+
+

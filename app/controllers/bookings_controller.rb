@@ -13,7 +13,7 @@ class BookingsController < ApplicationController
 		@booking = Booking.new(booking_params)
 		@booking.user_id = current_user.id
 		if @booking.save
-			SendEmailJob.set(wait: 10.seconds).perform_later(@booking)
+			SendEmailJob.set(wait: 10.seconds).perform_later(@booking.id)
 			flash[:success] = "Booking Done"
 			redirect_to current_user
 		else
