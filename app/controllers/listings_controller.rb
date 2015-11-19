@@ -3,12 +3,14 @@ class ListingsController < ApplicationController
 	before_action :authenticate_user!, except: [:index, :show, :new]
 	before_action :set_listing, only: [:show, :edit, :update, :destroy]
 
+
 	def new
 		@listing = Listing.new
 	end
 
 	def create
 		@listing = Listing.new(listing_params)
+		@listing.country = @listing.country_name
 
 		if current_user.nil?
 			redirect_to new_login_path
@@ -33,8 +35,9 @@ class ListingsController < ApplicationController
 	end
 
 	def index
-		@listings = Listing.search(params[:location]
-
+		Listing.reindex
+		byebug
+		@listings = Listing.search(params[:query])
 	end
 
 	def show
@@ -48,7 +51,6 @@ class ListingsController < ApplicationController
 	end
 
 	def update
-
 			if @listing.update(listing_params)
 	      redirect_to @listing
 	    else
@@ -57,7 +59,6 @@ class ListingsController < ApplicationController
 	end
 
 	def destroy
-
 		@listing.destroy
 		flash[:notice] = "Your listing #{@listing.listing_name} has been deleted."
 		redirect_to listings_path
