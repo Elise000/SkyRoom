@@ -35,9 +35,13 @@ class ListingsController < ApplicationController
 	end
 
 	def index
-		Listing.reindex
-		byebug
-		@listings = Listing.search(params[:query])
+		if params[:query] == nil
+			@listings = Listing.all
+		else
+			Listing.reindex
+			@listings = Listing.search(params[:query])
+		end
+		
 	end
 
 	def show
@@ -51,10 +55,20 @@ class ListingsController < ApplicationController
 	end
 
 	def update
-			if @listing.update(listing_params)
+
+			if @listing.update(listing_params)	
+				@listing.update(country: @listing.country_name)
+				photos = params[:listing][:photo]
+				photos.each do |p|
+					listingphoto = ListingPhoto.new
+					listingphoto.photo = p
+					listingphoto.listing_id = @listing.id
+					listingphoto.save
+				end
 	      redirect_to @listing
 	    else
-	    render :edit
+	    	flash[:notice] = "Bummer, there was a problem in creating your listing. Please try again"
+	   		render :edit
 	    end
 	end
 
