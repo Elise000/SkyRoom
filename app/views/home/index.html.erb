@@ -43,11 +43,18 @@
   <h1>Recent Listings</h1>
 
       <% Listing.all.each do |l| %>
+        <div>
         <%= link_to l.listing_name, listing_path(@l, :id => l.id) %><br>
-        <%= l.description %><br>
-        <br>
+          <% if l.listing_photos.first.present? %>
+            <%= image_tag l.listing_photos.first.photo_url(:display) %>
+          <% else %>
+            <%= image_tag "http://placehold.it/200x200?text=SkyRoom" %>
+          <% end %>
+          <span class="pricetag">USD<%= l.price_per_night %></span>
+        </div>
+        
+        <%= l.description %> <br>
       <% end %>
-
 </div>
 <!--
   <script>

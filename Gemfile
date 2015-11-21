@@ -50,6 +50,8 @@ gem 'validates_overlap'
 gem 'searchkick'
 
 gem 'delayed_job_active_record'
+
+gem 'better_errors'
 #https://github.com/zpaulovics/datetimepicker-rails
 
 #to host images in cloud

@@ -17,6 +17,7 @@ class ListingsController < ApplicationController
 		else
 			@listing.user_id = current_user.id
 			photos = params[:listing][:photo]
+
 			if @listing.save
 				photos.each do |p|
 					listingphoto = ListingPhoto.new
@@ -26,6 +27,7 @@ class ListingsController < ApplicationController
 				end
 	      flash[:notice] = "Your listing is successful"
 	      redirect_to @listing
+
 	    else
 	    	flash[:notice] = "Bummer, there was a problem in creating your listing. Please try again"
 	      render action: "new"
@@ -39,8 +41,8 @@ class ListingsController < ApplicationController
 			@listings = Listing.all
 		else
 			Listing.reindex
-			@listings = Listing.search(params[:query])
-		end
+			results = Listing.search params[:query], fields: [{country: :word}], {listing_name: :word}, {state: :word}, {city: :word}]
+
 		
 	end
 

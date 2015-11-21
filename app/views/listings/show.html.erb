@@ -9,7 +9,12 @@
 	<div class="col-md-11">
 		Listed By: <%= @listing.user.username %><br>
 		<% @listingphotos.each do |img| %>
-		<%= image_tag img.photo_url(:display) %><% end %><br>
+			<% if img.photo_url.present? %>
+				<%= image_tag img.photo_url(:display) %>
+			<% else %>
+				<%= image_tag "http://placehold.it/200x200?text=SkyRoom" %>
+			<% end %>
+		<% end %><br>
 	</div>
 </div>	
 	
