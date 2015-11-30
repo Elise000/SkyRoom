@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
 
+  get 'product_photos/new'
+
+  get 'product_photos/create'
+
+  get 'product_photos/show'
+
+  get 'product_photos/edit'
+
+  get 'product_photos/destroy'
+
   root 'home#index'
 
   resources :users

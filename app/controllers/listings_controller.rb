@@ -17,12 +17,13 @@ class ListingsController < ApplicationController
 		else
 			@listing.user_id = current_user.id
 			photos = params[:listing][:photo]
-
+			byebug
 			if @listing.save
 				photos.each do |p|
 					listingphoto = ListingPhoto.new
 					listingphoto.photo = p
 					listingphoto.listing_id = @listing.id
+				byebug
 					listingphoto.save
 				end
 	      flash[:notice] = "Your listing is successful"
@@ -41,8 +42,8 @@ class ListingsController < ApplicationController
 			@listings = Listing.all
 		else
 			Listing.reindex
-			results = Listing.search params[:query], fields: [{country: :word}], {listing_name: :word}, {state: :word}, {city: :word}]
-
+			@listings = Listing.search params[:query], fields: [{country: :word}, {listing_name: :word}, {state: :word}, {city: :word}]
+		end
 		
 	end
 

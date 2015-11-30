@@ -13,7 +13,7 @@
 <div class="container">
 	<h1>All your listings</h1>
 
-	<% current_user.listings.each do |l| %>
+	<% current_userc.listings.each do |l| %>
 		<ul>
 			<%= link_to l.listing_name, listing_path(@l, :id => l.id) %>
 			<p><%= l.description %></p>
